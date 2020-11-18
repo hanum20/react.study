@@ -93,4 +93,74 @@
 * 이제는 `npx`를 이용하여 굳이 다운로드하지 않아도 npm registry에서 `create-react-app` package를 알아서 실행 시켜준다.
 
   * 항상 최신 버전을 사용할수 있다.
+  
+* react app을 실행한 디랙토리에 프로젝트 구성 파일들이 생성된 것을 확인할 수 있다.
+
+  ```
+  npm run start
+  ```
+
+* `app.js`의 일부를 수정하면 바로 반영된다.
+
+* `index.js`
+
+  ```javascript
+  import React from 'react';
+  import ReactDOM from 'react-dom';
+  import './index.css';
+  import App from './App';
+  import reportWebVitals from './reportWebVitals';
+  
+  ReactDOM.render(
+    <React.StrictMode>
+      // App이라는 컴포넌트가 포함된 것
+      <App />
+    </React.StrictMode>,
+    document.getElementById('root')
+  );
+  
+  // If you want to start measuring performance in your app, pass a function
+  // to log results (for example: reportWebVitals(console.log))
+  // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+  reportWebVitals();
+  ```
+
+* `webpack`은 `src` dir만 관리한다. `public` dir은 관리하지 않음.
+
+  * 따라서 `webpack`이 관리해주어야 하는 resource는 `src` dir에 넣어주어야 한다.
+
+* 프로젝트 디렉토리 구조 변경
+
+  ```
+  /src
+  	+ _actions    -- Redux를 위한 폴더들
+  	+ _reducers
+  	+ components  
+  		+ views	  -- Page들이 위치
+  			+ something/Sections  -- 해당 페이지에 관련된 css 파일이나, Component가 위치
+      + App.js	  -- Routing 관련 일을 처리
+      + Config.js	  -- 환경 변수같은 것들을 정함
+      + hoc		  -- Higher Order Component 재사용이 되는 것들을 이곳에 넣어줌
+      + utils		  -- 여기도 재사용성 높은 것들을 넣어둠
+              
+  		
+  ```
+
+* HOC는 굉장히 유용한 듯
+
+  * 로그인 여부 체크 같은 로직에 사용하면 좋음
+
+* **ES7 React/Redux/GraphQL/React-Native snippets**
+
+  * 코드 양식?? 자동완성 해줌. 
+
+    ```
+    // react funtional component
+    rece
+    
+    // react class component
+    rcc
+    ```
+
+    
 
